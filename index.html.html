@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 5px;
+        }
+        #div1 {
+            display: inline-block;
+            position: relative;
+            background-color: lightgreen;
+            width: 300px;
+            height: 300px;
+        }
+        #img1 {
+            position: absolute;
+            width: 96px;
+            height: 96px;
+            border: 2px dashed red;
+            left: 0px;
+            top: 0px;
+            animation-name: moveLR;
+            animation-duration: 2s;
+        }
+
+        /* Basic animation */
+        @keyframes moveLR {
+          from { transform: translate(0px, 0); }          
+          to   { transform: translate(200px,0); }
+        }
+        /* More time inteval animation */
+        @keyframes moveAndRotate {
+          0%  { transform: translate(0px, 0); }    
+          
+          100% { transform: translate(200px,0) rotate(-360deg); }
+        }
+        @keyframes moveAround {
+              0% { transform: translate(0px, 0px); }
+             25% { transform: translate(200px, 0px); }
+             50% { transform: translate(200px, 200px); }
+             75% { transform: translate(0px, 200px); }
+            100% { transform: translate(0px, 0px); }
+        }
+    }
+    </style>
+</head>
+<body>
+
+<div id="div1">
+    <img id='img1' src="./images/alarmclock256-Axes.jpg" alt="">
+</div>
+<hr>
+<input type="button" value="action 1" onclick="action('moveLR')"> &nbsp;
+<input type="button" value="action 2" onclick="action('moveAndRotate')"> &nbsp;
+<input type="button" value="action 1" onclick="action('moveAround')">
+
+<script>
+var img = document.getElementById('img1')
+
+function action(animation) {
+    img1.style.animationName = animation
+}    
+</script>
+</body>
+</html>
